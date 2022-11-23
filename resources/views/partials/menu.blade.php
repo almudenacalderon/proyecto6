@@ -7,12 +7,10 @@
         and now I'm totally cray</p>
     </header>
     <nav id="nav">
-        <ul>
-
+        <ul>        
             <li><a href="/about" class="active">About</a></li>
             <li><a href="/thingsicando">Things I Can Do</a></li>
-
-            <li><a href="#three">A Few Accomplishments</a></li>
+            <li><a href="/afew">A Few Accomplishments</a></li>            
             <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
