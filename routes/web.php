@@ -33,3 +33,7 @@ Route::get('about', function() {
 Route::get('thingsicando', function() {
     return view('thingsicando');
 });
+
+Route::get('afew', function() {
+    return view('afew');
+});
