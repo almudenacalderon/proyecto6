@@ -2,15 +2,15 @@
 <section id="header">
     <header>
         <span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
-        <h1 id="logo"><a href="#">Willis Corto</a></h1>
+        <h1 id="logo"><a href="#">Fit Challenge</a></h1>
         <p>I got reprogrammed by a rogue AI<br />
         and now I'm totally cray</p>
     </header>
     <nav id="nav">
-        <ul>        
+        <ul>
             <li><a href="/about" class="active">About</a></li>
             <li><a href="/thingsicando">Things I Can Do</a></li>
-            <li><a href="/afew">A Few Accomplishments</a></li>            
+            <li><a href="/afew">A Few Accomplishments</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
