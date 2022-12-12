@@ -4,7 +4,7 @@
         <nav>
         <div class="wrap">
             <div id="logo">
-                <img src="img/android-chrome-192x192.png" alt="">
+                <img src="/img/android-chrome-192x192.png" alt="">
             </div>
             <nav>
                 <ul>
