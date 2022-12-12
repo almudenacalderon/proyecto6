@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GÉNESIS</title>
-    <link rel="stylesheet" href="assets/estilos.css">
-    <link rel="icon" href="img/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/estilos.css">
+    <link rel="icon" href="/img/favicon-32x32.png" type="image/x-icon">
 </head>
 
 <body>
