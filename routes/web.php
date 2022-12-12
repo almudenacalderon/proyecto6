@@ -12,51 +12,29 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('encuentro', function() {
-    return view('encuentro');
-});
-
-Route::get('contact', function() {
-    return view('contact');
-});
-
-
-Route::get('about', function() {
-    return view('about');
-});
-
-Route::get('thingsicando', function() {
-    return view('thingsicando');
-});
-
-Route::get('afew', function() {
-    return view('afew');
-});
-*/
-Route::get('/', function () {
-    return 'Esta es la página principal';
+    return view('home');
 });
 Route::get('login', function () {
-    return 'Login usuario';
+    return view('auth.login');
 });
 Route::get('logout', function () {
     return 'Logout usuario';
 });
-Route::get('productos', function () {
-    return 'Listado productos';
-});
-//
-Route::get('productos/show/{id}', function ($id) {
-    return 'Vista detalle producto ' . $id;
-});
-Route::get('productos/create', function () {
-    return 'Añadir producto';
-});
-Route::get('productos/edit/{id}', function ($id) {
-    return 'Modificar producto ' . $id;
+
+// las que empiezan por '/productos/...'
+
+Route::prefix('productos')->group(function() {
+    Route::get('/', function() {
+        return view('productos.index');
+    });
+    Route::get('/create', function() {
+        return view('productos.create');
+    });
+    Route::get('/show/{id}', function($id) {
+        return view('productos.show', ['id' => $id]);
+    });
+    Route::get('/edit/{id}', function($id) {
+        return view('productos.edit', ['id' => $id]);
+    });
 });
