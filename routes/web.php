@@ -30,4 +30,4 @@ Route::get('/lugares/show/{id}', [LugaresController::class, 'getShow']);
 
 Route::get('/lugares/create', [LugaresController::class, 'getCreate']);
 
-Route::get('/lugaress/edit/{id}', [LugaresController::class, 'getEdit']);
+Route::get('/lugares/edit/{id}', [LugaresController::class, 'getEdit']);

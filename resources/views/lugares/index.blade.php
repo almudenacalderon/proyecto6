@@ -1,8 +1,19 @@
 @extends('layouts.master')
 
 @section('content')
-    <!-- Products  -->
-    <div class="contenedor">
-    <h1 style="color: black"> All products </h1>
+    <!-- Lugares  -->
+    <div>
+        <h2> LUGARES A MOSTRAR </h2>
+        <div>
+        @foreach( $arrayLugares as $key => $lugar )
+            <a href="{{ url('/lugares/show/' . $key) }}">
+                <h4 class="contenedor" style="color:black;min-height:60px;">
+                    {{ $lugar['nombre'] }}
+                </h4>
+            </a>
+
+        </div>
+        @endforeach
+
     </div>
-@stop
+@endsection
