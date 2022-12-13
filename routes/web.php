@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LugaresController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,29 +14,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('home');
-});
-Route::get('login', function () {
+Route::get('/', [HomeController::class, 'getHome']);
+
+Route::get('/login', function () {
     return view('auth.login');
 });
-Route::get('logout', function () {
-    return 'Logout usuario';
+
+Route::get('/logout', function () {
+    return 'Sesión cerrada correctamente';
 });
 
-// las que empiezan por '/productos/...'
+Route::get('/lugares', [LugaresController::class, 'getIndex']);
 
-Route::prefix('productos')->group(function() {
-    Route::get('/', function() {
-        return view('productos.index');
-    });
-    Route::get('/create', function() {
-        return view('productos.create');
-    });
-    Route::get('/show/{id}', function($id) {
-        return view('productos.show', ['id' => $id]);
-    });
-    Route::get('/edit/{id}', function($id) {
-        return view('productos.edit', ['id' => $id]);
-    });
-});
+Route::get('/lugares/show/{id}', [LugaresController::class, 'getShow']);
+
+Route::get('/lugares/create', [LugaresController::class, 'getCreate']);
+
+Route::get('/lugares/edit/{id}', [LugaresController::class, 'getEdit']);
