@@ -18,10 +18,10 @@ class CreateLugaresTable extends Migration
             $table->string('name');
             $table->string('tipo');
             $table->string('ubicacion');
+            $table->string('imagen');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
