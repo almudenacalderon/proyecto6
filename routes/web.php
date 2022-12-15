@@ -1,8 +1,7 @@
 <?php
-
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LugaresController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +15,6 @@ use App\Http\Controllers\HomeController;
 */
 Route::get('/', [HomeController::class, 'getHome']);
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
-
-Route::get('/logout', function () {
-    return 'Sesión cerrada correctamente';
-});
-
 Route::get('/lugares', [LugaresController::class, 'getIndex']);
 
 Route::get('/lugares/show/{id}', [LugaresController::class, 'getShow']);
@@ -33,3 +24,13 @@ Route::get('/lugares/create', [LugaresController::class, 'getCreate']);
 Route::post('/lugares/create', [LugaresController::class, 'store']);
 
 Route::get('/lugares/edit/{id}', [LugaresController::class, 'getEdit']);
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
