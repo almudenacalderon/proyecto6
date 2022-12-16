@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Lugares;
 use Illuminate\Http\Request;
 
 class LugaresController extends Controller
@@ -17,6 +17,16 @@ class LugaresController extends Controller
 
     public function getCreate() {
         return view('lugares.create');
+    }
+
+    public function store(Request $request) {
+        $registroNuevo = new Lugares();
+        $registroNuevo->name = $request->input('nombre');
+        $registroNuevo->tipo = $request->input('tipo');
+        $registroNuevo->ubicacion = $request->input('ubicacion');
+        $registroNuevo->imagen = $request->input('imagen');
+        $registroNuevo->save(); //el primero es el que saldrá en la bbdd y el segundo se coge del formulario
+        return redirect([LugaresController::class, 'getShow'], ['id' => $registroNuevo->id]);
     }
 
     public function getEdit($id) {
