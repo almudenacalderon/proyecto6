@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('lugares')->truncate();
         DB::table('lugares')->insert([
-            'name' => 'Chef Momo',
+            'name' => 'El Mostacho',
             'tipo' => 'Restaurante',
             'ubicacion' => 'Calle San Isidoro, Cartagena',
             'descripcion' => 'Un lugar acogedor, perfecto para ir en familia',
