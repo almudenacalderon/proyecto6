@@ -16,6 +16,7 @@ class LugaresDefaultAndNullables extends Migration
         Schema::table('lugares', function (Blueprint $table) {
             $table->string('imagen')->nullable()->change();
             $table->string('tipo')->default('Gimnnasio o restaurante')->change();
+            $table->string('ubicacion')->nullable()->change();
         });
     }
 
@@ -27,7 +28,10 @@ class LugaresDefaultAndNullables extends Migration
     public function down()
     {
         Schema::table('lugares', function (Blueprint $table) {
-            $table->string('imagen')->change();
+            $table->dropColumn('imagen');
+            $table->dropColumn('tipo');
+            $table->dropColumn('name');
+            $table->dropColumn('ubicacion');
         });
     }
 }
