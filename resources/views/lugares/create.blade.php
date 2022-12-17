@@ -17,7 +17,7 @@
 
                          <div class="form-group">
                             <label for="title" style="color: black">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control">
+                            <input type="text" name="name" id="name" class="form-control">
                          </div>
 
                          <div class="form-group">
@@ -29,6 +29,11 @@
                              <label for="title" style="color: black">Ubicaci&oacute;n</label>
                             <input type="text" name="ubicacion" id="ubicacion" class="form-control">
                          </div>
+
+                         <div class="form-group">
+                            <label for="title" style="color: black">Descripci&oacute;n</label>
+                            <input type="text" name="descripcion" id="descripcion" class="form-control">
+                        </div>
 
                          <div class="form-group">
                              <label for="title" style="color: black">Imagen</label>

@@ -1,29 +1,42 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Lugares;
 use Illuminate\Http\Request;
 
 class LugaresController extends Controller
 {
     public function getIndex() {
-         $lugares = self::$arrayLugares;
+         $lugares = Lugares::all();
         return view('lugares.index', array('arrayLugares' => $lugares));
     }
 
     public function getShow($id) {
-    return view('lugares.show', array('lugar'=>self::$arrayLugares[$id], 'id'=>$id));
+        $lugar = Lugares::findOrFail($id);
+    return view('lugares.show', array('lugar'=>$lugar, 'id'=>$id));
     }
 
     public function getCreate() {
         return view('lugares.create');
     }
 
-    public function getEdit($id) {
-            return view('lugares.edit', array('lugar'=>self::$arrayLugares[$id], 'id'=>$id));
+    public function store(Request $request) {
+        $registroNuevo = new Lugares();
+        $registroNuevo->name = $request->input('name');
+        $registroNuevo->tipo = $request->input('tipo');
+        $registroNuevo->ubicacion = $request->input('ubicacion');
+        $registroNuevo->ubicacion = $request->input('descripcion');
+        $registroNuevo->imagen = $request->input('imagen');
+        $registroNuevo->save(); //el primero es el que saldrá en la bbdd y el segundo se coge del formulario
+        return redirect([LugaresController::class, 'getShow'], ['id' => $registroNuevo->id]);
     }
 
-private static $arrayLugares = array(
+    public function getEdit($id) {
+        $lugar = Lugares::findOrFail($id);
+            return view('lugares.edit', array('lugar'=>$lugar, 'id'=>$id));
+    }
+
+/*private static $arrayLugares = array(
     array(
         'nombre' => 'VivaGym',
         'tipo' => 'Gimnasio',
@@ -43,4 +56,5 @@ private static $arrayLugares = array(
         'imagen' => 'https://media-cdn.tripadvisor.com/media/photo-s/0f/a8/0b/f2/chef-momo-restaurante.jpg'
     )
 );
+*/
 }

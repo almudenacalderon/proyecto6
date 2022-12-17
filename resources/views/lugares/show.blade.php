@@ -7,7 +7,7 @@
         <br>
     </div>
     <div class="contenedor">
-        <h2 style="color: rgb(194, 221, 72); width:50px"> {{$lugar['nombre']}}</h2>
+        <h2 style="color: rgb(194, 221, 72); width:50px"> {{$lugar['name']}}</h2>
         <br>
         <img style='width:500px'src="{{ $lugar['imagen'] }}">
         <br>
