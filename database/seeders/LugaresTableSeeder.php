@@ -15,7 +15,7 @@ class LugaresTableSeeder extends Seeder
     public function run()
     {
         self::seedLugares();
-        $this->command->alert('Tabla vehiculos inicializada con datos!');
+        $this->command->alert('Tabla lugares inicializada con datos!');
     }
     private function seedLugares()
     {

@@ -11,7 +11,7 @@
            <div class="card contenedor">
                   <div class="card-body contenedor" style="padding:30px">
 
-                     <form action="{{ url('/lugares/create') }}" method="POST">
+                     <form action="{{ url('/lugares/edit/'. $id) }}" method="POST">
                         {{method_field('PUT')}}
 
                          @csrf
