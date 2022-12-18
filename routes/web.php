@@ -17,13 +17,13 @@ Route::get('/', [HomeController::class, 'getHome']);
 
 Route::get('/lugares', [LugaresController::class, 'getIndex']);
 
-Route::get('/lugares/show/{id}', [LugaresController::class, 'getShow']);
+Route::get('/lugares/show/{id}', [LugaresController::class, 'getShow'])->middleware(['auth']);
 
-Route::get('/lugares/create', [LugaresController::class, 'getCreate']);
+Route::get('/lugares/create', [LugaresController::class, 'getCreate'])->middleware(['auth']);
 
 Route::post('/lugares/create', [LugaresController::class, 'store']);
 
-Route::get('/lugares/edit/{id}', [LugaresController::class, 'getEdit']);
+Route::get('/lugares/edit/{id}', [LugaresController::class, 'getEdit'])->middleware(['auth']);
 
 Route::get('/', function () {
     return view('welcome');

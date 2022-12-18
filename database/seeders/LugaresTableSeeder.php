@@ -1,34 +1,23 @@
 <?php
 
 namespace Database\Seeders;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Schema;
 
-class DatabaseSeeder extends Seeder
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class LugaresTableSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        Model::unguard();
-        Schema::disableForeignKeyConstraints();
-    
-    $this->call(UsersTableSeeder::class);
-    $this->call(LugaresTableSeeder::class);
-
-    Model::reguard();
-
-    Schema::enableForeignKeyConstraints();
-
-    $this->command->info('Tablas iniciadas correctamente');
-
-    /*private function seedLugares()
+        self::seedLugares();
+        $this->command->alert('Tabla vehiculos inicializada con datos!');
+    }
+    private function seedLugares()
     {
         DB::table('lugares')->truncate();
         DB::table('lugares')->insert([
@@ -52,6 +41,5 @@ class DatabaseSeeder extends Seeder
             'descripcion' => 'Muy nuevo y con buenos monitores',
             'imagen' => 'https://ponferradahoy.com/wp-content/uploads/2022/05/construccion-de-gimnasio-synergim-2.jpg'
         ]);
-    }*/
     }
 }
