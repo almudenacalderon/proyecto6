@@ -23,6 +23,8 @@ Route::get('/lugares/create', [LugaresController::class, 'getCreate'])->middlewa
 
 Route::post('/lugares/create', [LugaresController::class, 'store']);
 
+Route::put('/lugares/edit/{id}', [LugaresController::class, 'putStore']);
+
 Route::get('/lugares/edit/{id}', [LugaresController::class, 'getEdit'])->middleware(['auth']);
 
 Route::get('/', function () {
