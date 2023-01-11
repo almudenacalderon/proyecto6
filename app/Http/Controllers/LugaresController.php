@@ -37,7 +37,7 @@ class LugaresController extends Controller
         $registroNuevo->descripcion = $request->input('descripcion');
         $registroNuevo->imagen = $request->input('imagen');
         $registroNuevo->save(); //el primero es el que saldrá en la bbdd y el segundo se coge del formulario
-        
+
         $url = action([LugaresController::class, 'getShow'], ['id' => $registroNuevo->id]);
         return redirect($url);
     }
