@@ -32,9 +32,13 @@ Route::any('/{any}', function (ServerRequestInterface $request) {
     $api = new Api($config);
     $response = $api->handle($request);
     //Para usar con REACT-ADMIN
-    $records = json_decode($response->getBody()->getContents())->records;
-    return response()->json($records, 200, $headers = ['X-Total-Count' => count($records)]);
+    try {
+        $records = json_decode($response->getBody()->getContents())->records;
+        $response = response()->json($records, 200, $headers = ['X-Total-Count' => count($records)]);
+    } catch (\Throwable $th) {
 
+    }
+    return $response;
     /* //Para usar con RESTED
     return $response;
     */
