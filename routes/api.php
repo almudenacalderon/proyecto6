@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Psr\Http\Message\ServerRequestInterface;
+use App\Http\Controllers\API\CustomerController;
+use App\Http\Controllers\API\UserController;
 use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config\Config;
 
@@ -20,6 +22,10 @@ use Tqdev\PhpCrudApi\Config\Config;
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('customers', CustomerController::class);
+
+Route::apiResource('users', UserController::class);
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
     $config = new Config([
