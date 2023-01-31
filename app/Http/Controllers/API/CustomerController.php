@@ -15,9 +15,17 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return CustomerResource::collection(Customer::paginate());
+        $busqueda = $request->input('filter');
+        $numElementos = $request->input('numElements');
+        $registrosCustomers =
+            ($busqueda && array_key_exists('q', $busqueda))
+            ? Customer::where('first_name', 'like', '%' .$busqueda['q'] . '%')
+                ->paginate($numElementos)
+            : Customer::paginate($numElementos);
+
+            return CustomerResource::collection($registrosCustomers);
     }
 
     /**
@@ -29,8 +37,11 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $customer = json_decode($request->getContent(), true);
+        $customerData = $customer['data']['attributes'];
+        $customerData['user_id'] = $customerData['userId'];
+        unset($customerData['userId']);
 
-        $customer = Customer::create($customer['data']['attributes']);
+        $customer = Customer::create($customerData);
 
         return new CustomerResource($customer);
     }
