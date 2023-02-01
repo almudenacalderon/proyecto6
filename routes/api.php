@@ -33,9 +33,7 @@ Route::apiResource('users', UserController::class);
 
 Route::get('recipes', [RecipeController::class, 'index']);
 
-// emite un nuevo token
 Route::post('tokens', [TokenController::class, 'store']);
-// elimina el token del usuario autenticado
 Route::delete('tokens', [TokenController::class, 'destroy'])->middleware('auth:sanctum');
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
