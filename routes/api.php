@@ -27,12 +27,11 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $user;
 });
 
-Route::apiResource('customers', CustomerController::class);
+Route::apiResource('customers', CustomerController::class)->middleware('auth:sanctum');
 
 Route::apiResource('users', UserController::class);
 
 Route::get('recipes', [RecipeController::class, 'index']);
-
 
 Route::post('tokens', [TokenController::class, 'store']);
 Route::delete('tokens', [TokenController::class, 'destroy'])->middleware('auth:sanctum');
