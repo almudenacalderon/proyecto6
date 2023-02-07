@@ -18,7 +18,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         Model::unguard();
         Schema::disableForeignKeyConstraints();
-    
+
+        DB::table('orders')->truncate();
+        DB::table('customers')->truncate();
+        DB::table('users')->truncate();
+
     $this->call(UsersTableSeeder::class);
     $this->call(LugaresTableSeeder::class);
 
