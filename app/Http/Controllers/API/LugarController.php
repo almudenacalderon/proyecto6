@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Lugar;
-
+use App\Http\Resources\LugarResource;
 
 class LugarController extends Controller
 {
@@ -72,6 +72,6 @@ class LugarController extends Controller
      */
     public function destroy(Lugar $lugar)
     {
-        $customer->delete();
+        $lugar->delete();
     }
 }
