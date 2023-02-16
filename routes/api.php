@@ -11,6 +11,7 @@ use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\RecipeController;
 use App\Http\Controllers\API\TokenController;
 use App\Http\Controllers\API\AvatarController;
+use App\Http\Controllers\API\LugarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::apiResource('customers', CustomerController::class)->middleware('auth:sanctum');
 
 Route::apiResource('users', UserController::class);
-
+Route::apiResource('lugares', LugarController::class);
 Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
 
 Route::post('/avatars', [AvatarController::class, 'store'])->middleware('auth:sanctum');
