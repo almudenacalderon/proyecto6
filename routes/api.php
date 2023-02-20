@@ -12,6 +12,10 @@ use App\Http\Controllers\API\RecipeController;
 use App\Http\Controllers\API\TokenController;
 use App\Http\Controllers\API\AvatarController;
 use App\Http\Controllers\API\LugarController;
+use App\Http\Controllers\API\RutinaController;
+use App\Http\Controllers\API\EjercicioController;
+use App\Http\Controllers\API\EntrenadorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +40,19 @@ Route::apiResource('users', UserController::class);
 Route::apiResource('lugares', LugarController::class)->parameters([
     'lugares' => 'lugar'
 ]);
+
+Route::apiResource('ejercicios', EjercicioController::class)->parameters([
+    'ejercicios' => 'ejercicio'
+]);
+
+Route::apiResource('entrenadores', EntrenadorController::class)->parameters([
+    'entrenadores' => 'entrenador'
+]);
+
+Route::apiResource('rutinas', RutinaController::class)->parameters([
+    'rutinas' => 'rutina'
+]);
+
 Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
 
 Route::post('/avatars', [AvatarController::class, 'store'])->middleware('auth:sanctum');
