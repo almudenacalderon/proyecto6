@@ -15,8 +15,7 @@ class Rutina extends Model
         'id',
         'name',
         'descripcion',
-        'meta',
-        'realizada'
+        'meta'
     ];
     public function entrenador()
     {
@@ -24,6 +23,6 @@ class Rutina extends Model
     }
     public function ejercicio()
     {
-        return $this->belongsTo(Ejercicio::class, 'ejercicio_id');
+        return $this->hasMany(Ejercicio::class, 'ejercicio_id');
     }
 }

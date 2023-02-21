@@ -21,7 +21,7 @@ class Ejercicio extends Model
 
     public function rutinas()
     {
-        return $this->hasMany(Rutina::class, 'ejercicio_id');
+        return $this->belongsTo(Rutina::class, 'ejercicio_id');
     }
 }
 

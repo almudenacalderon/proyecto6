@@ -27,7 +27,7 @@ class RutinaController extends Controller
         $rutina = json_decode($request->getContent(), true);
         $rutinaData = $rutina['data']['attributes'];
 
-        $entrenador = Rutina::create($rutinaData);
+        $rutina = Rutina::create($rutinaData);
 
         return new RutinaResource($rutina);
     }

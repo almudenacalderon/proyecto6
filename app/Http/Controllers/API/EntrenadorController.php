@@ -48,9 +48,9 @@ class EntrenadorController extends Controller
     }
 
 
-    public function destroy(Ejercicio $ejercicio)
+    public function destroy(Entrenador $entrenador)
     {
-        $ejercicio->delete();
+        $entrenador->delete();
     }
 }
 
