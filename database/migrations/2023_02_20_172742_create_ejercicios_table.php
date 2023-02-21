@@ -14,11 +14,11 @@ class CreateEjerciciosTable extends Migration
     public function up()
     {
         Schema::create('ejercicios', function (Blueprint $table) {
-            $table->id();
+           $table->id();
            $table->string('name')->default('Sentadilla');
-           $table->text('descripcion')->nullable();
            $table->integer('repeticiones')->default(0);
            $table->integer('sets')->default(0);
+           $table->string('categoria')->default('Pierna');
            $table->timestamps();
         });
     }
