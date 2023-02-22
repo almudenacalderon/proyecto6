@@ -35,26 +35,9 @@ class UsersTableSeeder extends Seeder
             'name' => 'Admin'
         ]);
 
-        $roleCustomer = Role::create([
-            'name' => 'Customer'
-        ]);
+
 
         $userAdmin->roles()->attach($roleAdmin->id);
 
-        $userCustomers = User::factory(10)
-        ->has(Customer::factory()
-        ->has(Order::factory()->count(3))
-        ->count(1))
-        ->create();
-
-        foreach ($userCustomers as $userCustomer) {
-            $userCustomer->roles()->attach($roleCustomer->id);
-        }
-
-        User::factory(10)
-        ->has(Customer::factory()
-        ->has(Order::factory()->count(3))
-        ->count(2))
-        ->create();
     }
 }

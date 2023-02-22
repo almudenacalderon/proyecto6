@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasOne(Customer::class, 'user_id');
     }
 
+    public function entrenador()
+    {
+        return $this->belongsTo(Entrenador::class, 'entrenador_id');
+    }
+
     /**
      * Los roles que tiene asignados un determinado usuario.
      */

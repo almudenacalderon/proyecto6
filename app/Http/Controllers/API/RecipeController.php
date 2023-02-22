@@ -19,14 +19,19 @@ class RecipeController extends Controller
     {
         // Inicialmente, vamos a utilizar un autor constante
         $busqueda = $request->input('filter');
-        $type = "public";
-        $diet = "balanced";
+        $type = "?type="."public";
+        $diet = "&diet="."balanced";
+
+        //se pueden añadir campos a la url sin valor para poder usarlos mas adelante con los filtros
+        //$q = "&q=Noodle";
+        $q="";
+
         // La key la cogeremos de las variables de entorno
 
-        $id = env("API_ID");
-        $key = env("API_KEY");
+        $app_id = "&app_id=".env("API_ID");
+        $app_key = "&app_key=".env("API_KEY");
         $urlEdamamAPI = "https://api.edamam.com/api/recipes/v2";
-        $queryString = "?type=$type&app_id=$id&app_key=$key&diet=$diet";
+        $queryString = "$type$q$app_id$app_key$diet";
         $urlConsulta = $urlEdamamAPI . $queryString;
         // Consultamos a la API
         $response = Http::get($urlConsulta);
