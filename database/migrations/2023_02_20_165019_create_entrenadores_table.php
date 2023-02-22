@@ -23,7 +23,7 @@ class CreateEntrenadoresTable extends Migration
             $table->string('pais', 40)->default('España');
             $table->string('ciudad', 40)->default('Cartagena');
             $table->string('sexo')->nullable();
-            $table->integer('telefono')->nullable();
+            $table->string('telefono')->nullable();
         });
     }
 

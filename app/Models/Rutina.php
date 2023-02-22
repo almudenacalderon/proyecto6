@@ -15,7 +15,9 @@ class Rutina extends Model
         'id',
         'name',
         'descripcion',
-        'meta'
+        'meta',
+        'entrenador_id',
+        'ejercicio_id'
     ];
     public function entrenador()
     {

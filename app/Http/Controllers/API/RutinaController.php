@@ -42,7 +42,7 @@ class RutinaController extends Controller
     public function update(Request $request, Rutina $rutina)
     {
         $rutinaData = json_decode($request->getContent(), true);
-        $rutina->update($ruitnaData['data']['attributes']);
+        $rutina->update($rutinaData['data']['attributes']);
 
         return new RutinaResource($rutina);
     }

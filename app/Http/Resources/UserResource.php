@@ -23,6 +23,7 @@ class UserResource extends JsonResource
                 'name' => $name,
                 'email' => $this->email,
                 'roles' => RoleResource::collection($this->roles),
+                'entrenador' => $this->entrenador_id
                 // customer' => new CustomerResource($this->customer)
             ]
         ];
