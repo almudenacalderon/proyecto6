@@ -35,8 +35,6 @@ class UsersTableSeeder extends Seeder
             'name' => 'Admin'
         ]);
 
-
-
         $userAdmin->roles()->attach($roleAdmin->id);
 
     }

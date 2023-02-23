@@ -14,9 +14,12 @@ class RutinaResource extends JsonResource
      */
     public function toArray($request)
     {
+        $ejercicio = EjercicioResource::collection($this->ejercicios);
         return [
             'id' => $this->id,
-            'attributes' => parent::toArray($request)
+            'attributes' => parent::toArray($request)+[
+                'ejercicios' => $ejercicio
+            ]
         ];
     }
 }

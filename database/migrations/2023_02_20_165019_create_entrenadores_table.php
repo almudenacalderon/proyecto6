@@ -20,8 +20,8 @@ class CreateEntrenadoresTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
             $table->string('imagen')->nullable();
-            $table->string('pais', 40)->default('España');
-            $table->string('ciudad', 40)->default('Cartagena');
+            $table->string('pais', 80)->default('España');
+            $table->string('ciudad', 80)->default('Cartagena');
             $table->string('sexo')->nullable();
             $table->string('telefono')->nullable();
         });

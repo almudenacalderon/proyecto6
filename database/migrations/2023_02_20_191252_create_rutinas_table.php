@@ -19,9 +19,7 @@ class CreateRutinasTable extends Migration
             $table->text('descripcion')->default('Los ejercicios deben ejecutarse en series de tres, con 10 repeticiones cada una. A medida que se avance en el entrenamiento, se pueden agregar más series y más repeticiones.');
             $table->timestamps();
             $table->string('meta')->default('Hipertrofia');
-            $table->unsignedBigInteger('ejercicio_id');
             $table->unsignedBigInteger('entrenador_id');
-            $table->foreign('ejercicio_id')->references('id')->on('ejercicios');
             $table->foreign('entrenador_id')->references('id')->on('entrenadores');
         });
     }
