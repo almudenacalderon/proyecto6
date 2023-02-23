@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Ejercicio;
+use App\Models\Rutina;
 
 class EjerciciosTableSeeder extends Seeder
 {
@@ -51,5 +53,16 @@ class EjerciciosTableSeeder extends Seeder
             'sets' => 4,
             'categoria' => 'Espalda'
         ]);
+
+        // $ejercicios = Ejercicio::factory()->count(5)
+        // ->create();
+
+        // $ejercicios = Ejercicio::factory()->count(5)
+        // ->has(Rutina::factory()->count(10))
+        // ->create();
+
+        // foreach ($ejercicios as $ejercicio) {
+        //     $ejercicio->rutinas()->attach($ejercicio->id);
+        // }
     }
 }

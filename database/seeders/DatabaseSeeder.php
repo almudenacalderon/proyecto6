@@ -24,11 +24,12 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->truncate();
         DB::table('roles')->truncate();
         DB::table('role_user')->truncate();
+        DB::table('ejercicio_rutina')->truncate();
 
     $this->call(UsersTableSeeder::class);
+    $this->call(EntrenadoresTableSeeder::class);
     $this->call(LugaresTableSeeder::class);
     $this->call(EjerciciosTableSeeder::class);
-    $this->call(EntrenadoresTableSeeder::class);
     $this->call(RutinasTableSeeder::class);
 
 

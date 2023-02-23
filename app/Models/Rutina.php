@@ -23,8 +23,8 @@ class Rutina extends Model
     {
         return $this->belongsTo(Entrenador::class, 'entrenador_id');
     }
-    public function ejercicio()
+    public function ejercicios()
     {
-        return $this->hasMany(Ejercicio::class, 'ejercicio_id');
+        return $this->belongsToMany(Ejercicio::class, 'ejercicio_rutina', 'rutina_id', 'ejercicio_id');
     }
 }

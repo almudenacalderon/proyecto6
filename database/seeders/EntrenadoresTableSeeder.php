@@ -25,9 +25,9 @@ class EntrenadoresTableSeeder extends Seeder
 
     private function seedEntrenadores()
     {
-        DB::table('entrenadores')->truncate();
+        Entrenador::truncate();
 
-        DB::table('entrenadores')->insert([
+        Entrenador::create([
             'name' => 'Juan Riquelme',
             'email' => 'eljuanri@gmail.com',
             'imagen' => 'https://amadorruiz.com/wp-content/uploads/2022/01/AMADOR.png',
@@ -43,13 +43,14 @@ class EntrenadoresTableSeeder extends Seeder
 
         Entrenador::factory(10)
         ->has(
-            $userCustomers = User::factory()->count(2)
+            User::factory()->count(2)
             ->has(Customer::factory()
             ->has(Order::factory()->count(3))
             ->count(2))
-
         )
         ->create();
+
+        $userCustomers = User::where('id', '!=' , 1)->get();
 
         foreach ($userCustomers as $userCustomer) {
             $userCustomer->roles()->attach($roleCustomer->id);
