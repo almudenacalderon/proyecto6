@@ -3,6 +3,10 @@
 namespace App\Providers;
 use App\Models\Customer;
 use App\Policies\CustomerPolicy;
+use App\Models\Rutina;
+use App\Policies\RutinaPolicy;
+use App\Models\Ejercicio;
+use App\Policies\EjercicioPolicy;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -16,6 +20,8 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
         Customer::class => CustomerPolicy::class,
+        Rutina::class => RutinaPolicy::class,
+        Ejercicio::class => EjercicioPolicy::class,
     ];
 
     /**

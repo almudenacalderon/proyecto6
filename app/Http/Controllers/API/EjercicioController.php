@@ -9,6 +9,10 @@ use App\Http\Resources\EjercicioResource;
 
 class EjercicioController extends Controller
 {
+    public function __construct()
+    {
+         $this->authorizeResource(Ejercicio::class, 'ejercicios');
+    }
     public function index(Request $request)
     {
         $busqueda = $request->input('filter');

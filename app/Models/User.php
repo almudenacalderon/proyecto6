@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -73,4 +74,21 @@ class User extends Authenticatable
         }
         return $isAdmin;
     }
+
+    public function isEntrenador(){
+        $roles = $this->roles;
+        $isEntrenador = false;
+        foreach ($roles as $role) {
+            if($role->name == 'Entrenador'){
+                $isEntrenador = true;
+            }
+        }
+        return $isEntrenador;
+    }
+
+    public function rolPorDefecto()
+        {
+            $role = Role::where('name', 'Customer')->first();
+            $this->roles()->attach($role->id);
+        }
 }

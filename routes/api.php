@@ -43,7 +43,7 @@ Route::apiResource('lugares', LugarController::class)->parameters([
 
 Route::apiResource('ejercicios', EjercicioController::class)->parameters([
     'ejercicios' => 'ejercicio'
-]);
+])->middleware('auth:sanctum');
 
 Route::apiResource('entrenadores', EntrenadorController::class)->parameters([
     'entrenadores' => 'entrenador'
@@ -51,7 +51,7 @@ Route::apiResource('entrenadores', EntrenadorController::class)->parameters([
 
 Route::apiResource('rutinas', RutinaController::class)->parameters([
     'rutinas' => 'rutina'
-]);
+])->middleware('auth:sanctum');
 
 Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
 

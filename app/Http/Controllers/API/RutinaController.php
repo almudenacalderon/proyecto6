@@ -9,6 +9,11 @@ use App\Http\Resources\RutinaResource;
 
 class RutinaController extends Controller
 {
+    public function __construct()
+    {
+         $this->authorizeResource(Rutina::class, 'rutinas');
+    }
+
     public function index(Request $request)
     {
         $busqueda = $request->input('filter');

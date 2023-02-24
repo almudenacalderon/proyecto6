@@ -37,10 +37,6 @@ class EntrenadoresTableSeeder extends Seeder
             'telefono' => 978123456
         ]);
 
-        $roleCustomer = Role::create([
-            'name' => 'Customer'
-        ]);
-
         Entrenador::factory(10)
         ->has(
             User::factory()->count(2)
@@ -49,11 +45,5 @@ class EntrenadoresTableSeeder extends Seeder
             ->count(2))
         )
         ->create();
-
-        $userCustomers = User::where('id', '!=' , 1)->get();
-
-        foreach ($userCustomers as $userCustomer) {
-            $userCustomer->roles()->attach($roleCustomer->id);
-        }
     }
 }
