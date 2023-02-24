@@ -31,4 +31,16 @@ class Entrenador extends Model
     {
         return $this->hasMany(User::class, 'entrenador_id');
     }
+
+    public function isEntrenador()
+    {
+        $roles = $this->roles;
+        $isEntrenador = false;
+        foreach ($roles as $role) {
+            if($role->name == 'Entrenador') {
+                $isEntrenador = true;
+            }
+        }
+        return $isEntrenador;
+    }
 }

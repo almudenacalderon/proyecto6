@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Resources\CustomerResource;
+use Illuminate\Support\Facades\Gate;
 
 class CustomerController extends Controller
 {
@@ -45,6 +46,9 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->user()->cannot('update', Customer::class)) {
+            abort(403);
+        }
         $customer = json_decode($request->getContent(), true);
         $customerData = $customer['data']['attributes'];
 
@@ -73,6 +77,10 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
+        if ($request->user()->cannot('update', $customer)) {
+            abort(403);
+        }
+
         $customerData = json_decode($request->getContent(), true);
         $customer->update($customerData['data']['attributes']);
 
