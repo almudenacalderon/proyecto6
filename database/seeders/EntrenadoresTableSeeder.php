@@ -41,6 +41,10 @@ class EntrenadoresTableSeeder extends Seeder
             'name' => 'Customer'
         ]);
 
+        $roleEntrenador = Role::create([
+            'name' => 'Entrenador'
+        ]);
+
         Entrenador::factory(10)
         ->has(
             User::factory()->count(2)
@@ -54,6 +58,16 @@ class EntrenadoresTableSeeder extends Seeder
 
         foreach ($userCustomers as $userCustomer) {
             $userCustomer->roles()->attach($roleCustomer->id);
+        }
+
+        $userEntrenadores = User::factory()->count(2)
+        ->has(Customer::factory()
+        ->has(Order::factory()->count(3))
+        ->count(2))
+        ->create();
+
+        foreach ($userEntrenadores as $userEntrenador) {
+            $userEntrenador->roles()->attach($roleEntrenador->id);
         }
     }
 }

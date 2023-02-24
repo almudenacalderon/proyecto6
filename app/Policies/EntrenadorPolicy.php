@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Customer;
+use App\Models\Entrenador;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CustomerPolicy
+class EntrenadorPolicy
 {
     use HandlesAuthorization;
 
@@ -17,10 +17,10 @@ class CustomerPolicy
    * @param  string  $ability
    * @return void|bool
    */
-   public function before(User $user, $ability)
-   {
-         if ($user->isAdmin()) return true;
-   }
+  public function before(User $user, $ability)
+  {
+        return $user->isAdmin();
+  }
     /**
      * Determine whether the user can view any models.
      *
@@ -29,19 +29,19 @@ class CustomerPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        //
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Entrenador  $entrenador
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Customer $customer)
+    public function view(User $user, Entrenador $entrenador)
     {
-        return $user->id === $customer->user_id;
+        return $user->id === $entrenador->user_id;
     }
 
     /**
@@ -52,29 +52,29 @@ class CustomerPolicy
      */
     public function create(User $user)
     {
-        return $user->id === 1;
+        //
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Entrenador  $entrenador
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Customer $customer)
+    public function update(User $user, Entrenador $entrenador)
     {
-        return $user->id === $customer->user_id;
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Entrenador  $entrenador
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Customer $customer)
+    public function delete(User $user, Entrenador $entrenador)
     {
         //
     }
@@ -83,10 +83,10 @@ class CustomerPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Entrenador  $entrenador
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Customer $customer)
+    public function restore(User $user, Entrenador $entrenador)
     {
         //
     }
@@ -95,10 +95,10 @@ class CustomerPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Entrenador  $entrenador
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Customer $customer)
+    public function forceDelete(User $user, Entrenador $entrenador)
     {
         //
     }

@@ -67,10 +67,16 @@ class User extends Authenticatable
         $roles = $this->roles;
         $isAdmin = false;
         foreach ($roles as $role) {
-            if($role->name == 'admin') {
+            if($role->name == 'Admin') {
                 $isAdmin = true;
             }
         }
         return $isAdmin;
     }
+
+    public function rolPorDefecto()
+        {
+            $role = Role::where('name', 'Customer')->first();
+            $this->roles()->attach($role->id);
+        }
 }

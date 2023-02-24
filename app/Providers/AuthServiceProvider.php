@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 use App\Models\Customer;
+use App\Models\Entrenador;
 use App\Policies\CustomerPolicy;
+use App\Policies\EntrenadorPolicy;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 

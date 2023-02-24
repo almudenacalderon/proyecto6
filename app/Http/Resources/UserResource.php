@@ -20,10 +20,11 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'attributes' => [
-                'name' => $name,
+                'name' => $this->name,
                 'email' => $this->email,
                 'roles' => RoleResource::collection($this->roles),
-                'entrenador' => $this->entrenador_id
+                'entrenador' => $this->entrenador_id,
+                'customer' => $name
                 // customer' => new CustomerResource($this->customer)
             ]
         ];
