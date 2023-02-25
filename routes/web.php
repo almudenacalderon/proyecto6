@@ -14,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return ['Laravel' => app()->version()];
+    return view('react');
+});
+Route::get('/register', function () {
+    return view('react');
+});
+
+Route::any('dashboard/{any?}', function () {
+    return view('react');
 });
 
 require __DIR__.'/auth.php';
